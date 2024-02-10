@@ -1,12 +1,31 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 card align-items-center shadow rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
-    </div>
+  <div class="container-fluid">
+    <section class="row mt-5">
+      <div class="col-5 the-journey">
+        <p class="the-journey">The Journey.</p>
+      </div>
+      <div class="col-5  m-5 d-flex justify-content-evenly nav-bar">
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+          <p>Home</p>
+        </router-link>
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Contact' }">
+          <p>Contact</p>
+        </router-link>
+        <router-link class="navbar-brand d-flex" :to="{ name: 'The Blog' }">
+          <p>The Blog</p>
+        </router-link>
+        <router-link class="navbar-brand d-flex" :to="{ name: 'About' }">
+          <p>About</p>
+        </router-link>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-12 p-0">
+        <img class="img-fluid"
+          src="https://images.unsplash.com/photo-1625585598750-3535fe40efb3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHBvdHRlZCUyMHNuYWtlJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D"
+          alt="">
+      </div>
+    </section>
   </div>
 </template>
 
@@ -14,30 +33,29 @@
 export default {
   setup() {
     return {
-      
+
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.home {
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
+.the-journey {
+  font-size: 50px;
+  font-family: cursive;
+  padding-left: 80px;
+}
 
-  .home-card {
-    width: clamp(500px, 50vw, 100%);
+.nav-bar {
+  font-family: Courier New;
+  font-size: 18px;
+}
 
-    >img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
+img {
+  object-fit: cover;
+  position: center;
+  width: 100%;
+  height: 525px;
+  border-bottom: 5px solid black;
 }
 </style>
