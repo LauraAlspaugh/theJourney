@@ -19,6 +19,11 @@
                 </router-link>
             </div>
         </section>
+        <section class="row">
+            <div class="col-12 text-center mt-3">
+                <p class="fs-1">The Feed</p>
+            </div>
+        </section>
     </div>
 </template>
 
