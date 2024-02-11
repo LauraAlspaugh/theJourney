@@ -45,4 +45,10 @@ export default {
     font-family: Courier New;
     font-size: 18px;
 }
+
+.active,
+.navbar-brand:hover {
+    border-top: black 1px solid;
+    border-bottom: 1px solid black;
+}
 </style>

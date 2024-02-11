@@ -18,12 +18,12 @@
         </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
-      <div>
+      <!-- <div>
         <button class="btn text-light" @click="toggleTheme">
           <i class="mdi" :class="theme == 'light' ? 'mdi-weather-sunny' : 'mdi-weather-night'"></i>
         </button>
       </div>
-      <Login />
+      <Login /> -->
     </div>
   </nav>
 </template>

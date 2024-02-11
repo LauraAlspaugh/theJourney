@@ -22,8 +22,14 @@
     <section class="row">
       <div class="col-12 p-0">
         <img class="img-fluid"
-          src="https://images.unsplash.com/photo-1625585598750-3535fe40efb3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHBvdHRlZCUyMHNuYWtlJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D"
+          src="https://static.wixstatic.com/media/nsplsh_616637633047774c734755~mv2_d_3648_5472_s_4_2.jpg/v1/fill/w_1960,h_3272,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/nsplsh_616637633047774c734755~mv2_d_3648_5472_s_4_2.jpg"
           alt="">
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-12 text-center mt-5">
+        <p class="fs-2 blog-title ">My Life. My Blog</p>
+        <p class="fs-4 post-inspo">Sharing inspiration one post at a time.</p>
       </div>
     </section>
   </div>
@@ -55,7 +61,21 @@ img {
   object-fit: cover;
   position: center;
   width: 100%;
-  height: 525px;
+  height: 800px;
   border-bottom: 5px solid black;
+}
+
+.blog-title {
+  font-family: Scriptina;
+}
+
+.post-inspo {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.active,
+.navbar-brand:hover {
+  border-top: black 1px solid;
+  border-bottom: 1px solid black;
 }
 </style>

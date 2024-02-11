@@ -19,6 +19,16 @@
         </router-link>
       </div>
     </section>
+    <section class="row justify-content-center mb-5">
+      <div class="col-4 gray-box">
+
+      </div>
+      <div class="col-4">
+        <img
+          src="https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
+          alt="">
+      </div>
+    </section>
   </div>
 </template>
 
@@ -41,5 +51,33 @@ export default {
 .nav-bar {
   font-family: Courier New;
   font-size: 18px;
+}
+
+.active,
+.navbar-brand:hover {
+  border-top: black 1px solid;
+  border-bottom: 1px solid black;
+}
+
+.gray-box {
+  position: relative;
+  background-color: gray;
+  width: 30%;
+  height: 490px;
+  box-shadow: 0px 5px 10px #888888;
+  box-shadow: 0px 15px 9px #888888;
+  bottom: 20%;
+}
+
+img {
+  position: absolute;
+  left: 48%;
+  bottom: 7%;
+  border: 3px solid black;
+  width: 30%;
+  height: 550px;
+  object-fit: cover;
+  position: center;
+  margin-bottom: 5px;
 }
 </style>
