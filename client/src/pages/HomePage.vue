@@ -52,7 +52,7 @@ export default {
   padding-left: 80px;
 }
 
-.nav-bar {
+.nav-bar a {
   font-family: Courier New;
   font-size: 18px;
 }
@@ -73,8 +73,8 @@ img {
   font-family: 'Courier New', Courier, monospace;
 }
 
-.active,
-.navbar-brand:hover {
+
+.navbar a.active {
   border-top: black 1px solid;
   border-bottom: 1px solid black;
 }
