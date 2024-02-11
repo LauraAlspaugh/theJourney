@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <section class="row mt-5">
+    <section class="row mt-5 header-section">
       <div class="col-5 the-journey">
         <p class="the-journey">The Journey.</p>
       </div>
@@ -19,9 +19,28 @@
         </router-link>
       </div>
     </section>
+    <section class="row">
+      <div class="col-12 gray-space">
+
+      </div>
+    </section>
     <section class="row justify-content-center mb-5">
       <div class="col-4 gray-box">
+        <p class="fs-2 hey-text p-3">Hey There.</p>
+        <p class="p-3 about-text">I'm Laura. I'm so glad your here. Here's where I share what's been inspiring me and what
+          I'm
+          learning on this
+          journey called LIFE. Never meant to be traveled alone, let's go together.
 
+          I believe with all my heart that so much good can come from hard things.
+
+          I love good chats. Exercise. Traveling. And a whole lot of other things.
+
+          Jesus needs to be first in my life.
+
+          And oh, I like to think I'm a minimalist.
+
+          The west is beautiful. If you have doubts, come see for yourself. Thank me later. ​​</p>
       </div>
       <div class="col-4">
         <img
@@ -48,6 +67,10 @@ export default {
   padding-left: 80px;
 }
 
+// .header-section {
+//   box-shadow: 0px 3px 10px gray;
+// }
+
 .nav-bar {
   font-family: Courier New;
   font-size: 18px;
@@ -72,12 +95,27 @@ export default {
 img {
   position: absolute;
   left: 48%;
-  bottom: 7%;
+  top: 50%;
   border: 3px solid black;
   width: 30%;
   height: 550px;
   object-fit: cover;
   position: center;
   margin-bottom: 5px;
+}
+
+.hey-text {
+  font-family: lucinda handwriting, cursive;
+}
+
+.about-text {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.gray-space {
+  background-color: #E5E4E2;
+  width: 100%;
+  height: 200px;
+  box-shadow: 0px 3px 10px gray;
 }
 </style>
