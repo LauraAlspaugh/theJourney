@@ -1,4 +1,6 @@
 
+
+
 namespace theJourney.Repositories;
 public class PostsRepository
 {
@@ -28,5 +30,40 @@ public class PostsRepository
              return post;
          }, postData).FirstOrDefault();
         return post;
+    }
+
+    internal Post GetPostById(int postId)
+    {
+        string sql = @"
+       SELECT 
+       pos.*,
+       acc.*
+       FROM posts pos
+       JOIN accounts acc ON pos.creatorId = acc.id
+       WHERE pos.id = @postId;
+       ";
+        Post post = _db.Query<Post, Account, Post>(sql, (post, account) =>
+        {
+            post.Creator = account;
+            return post;
+        }, new { postId }).FirstOrDefault();
+        return post;
+    }
+
+    internal List<Post> GetPosts()
+    {
+        string sql = @"
+    SELECT 
+    pos.*,
+    acc.*
+    FROM posts pos
+    JOIN accounts acc ON pos.creatorId = acc.id
+    ";
+        List<Post> posts = _db.Query<Post, Account, Post>(sql, (post, account) =>
+        {
+            post.Creator = account;
+            return post;
+        }).ToList();
+        return posts;
     }
 }
