@@ -33,7 +33,7 @@
       </div>
     </section>
     <section class="row justify-content-evenly mt-5">
-      <div v-for="post in posts" :key="post.id" class="col-5 mb-5">
+      <div v-for="post in posts" :key="post.id" class=" col-5 mb-5">
         <post-card :postProp="post" />
       </div>
     </section>

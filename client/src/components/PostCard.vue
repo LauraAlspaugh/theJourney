@@ -1,14 +1,14 @@
 <template>
     <div class="post-card">
         <div class="col-12">
-
-            <img class="img-fluid" :src="postProp.img" alt="post image">
-
+            <router-link :to="{ name: 'Post', params: { postId: postProp.id } }">
+                <img class="img-fluid" :src="postProp.img" alt="post image">
+            </router-link>
 
         </div>
         <div class="col-12 mb-5">
             <p class="fs-2 p-4 post-name  text-dark">{{ postProp.title }}</p>
-            <p class="mb-4 p-4">{{ postProp.shortBody }}...</p>
+            <p class="mb-4 p-4 post-body">{{ postProp.shortBody }}...</p>
         </div>
 
     </div>
@@ -50,5 +50,10 @@ img {
 .post-name {
 
     font-family: cursive;
+}
+
+.post-body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
 }
 </style>
