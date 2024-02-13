@@ -17,6 +17,31 @@ public class PostsService
         return post;
     }
 
+    internal string DestroyPost(int postId, string userId)
+    {
+        Post post = GetPostById(postId);
+        if (post.CreatorId != userId)
+        {
+            throw new Exception("not yours to destroy!");
+        }
+        _postsRepository.DestroyPost(postId, userId);
+        return "it really is gone";
+    }
+
+    internal Post EditPost(int postId, string id, Post postData)
+    {
+        Post post = GetPostById(postId);
+        if (post.CreatorId != id)
+        {
+            throw new Exception("not yours to edit!");
+        }
+        post.Img = postData.Img ?? post.Img;
+        post.Title = postData.Title ?? post.Title;
+        post.Body = postData.Body ?? post.Body;
+        _postsRepository.EditPost(post);
+        return post;
+    }
+
     internal Post GetPostById(int postId)
     {
         Post post = _postsRepository.GetPostById(postId);

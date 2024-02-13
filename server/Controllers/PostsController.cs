@@ -1,6 +1,8 @@
+using System.Security.Cryptography.X509Certificates;
+
 namespace theJourney.Controllers;
 [ApiController]
-[Route("api[controller]")]
+[Route("api/[controller]")]
 public class PostsController : ControllerBase
 {
     private readonly PostsService _postsService;
@@ -48,6 +50,39 @@ public class PostsController : ControllerBase
         try
         {
             Post post = _postsService.GetPostById(postId);
+            return Ok(post);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
+    [Authorize]
+    [HttpDelete("{postId}")]
+    public async Task<ActionResult<string>> DestroyPost(int postId)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            string userId = userInfo.Id;
+            string message = _postsService.DestroyPost(postId, userId);
+            return Ok(message);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
+    [Authorize]
+    [HttpPost("{postId}")]
+    public async Task<ActionResult<Post>> EditPost(int postId, [FromBody] Post postData)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            Post post = _postsService.EditPost(postId, userInfo.Id, postData);
             return Ok(post);
         }
         catch (Exception error)

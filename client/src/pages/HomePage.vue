@@ -32,16 +32,42 @@
         <p class="fs-4 post-inspo">Sharing inspiration one post at a time.</p>
       </div>
     </section>
+    <section class="row justify-content-evenly mt-5">
+      <div v-for="post in posts" :key="post.id" class="col-5 mb-5">
+        <post-card :postProp="post" />
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
+import { computed, onMounted } from 'vue';
+import { AppState } from '../AppState.js';
+import { logger } from '../utils/Logger.js';
+import Pop from '../utils/Pop.js';
+import { postsService } from '../services/PostsService.js';
+import PostCard from '../components/PostCard.vue';
+
+
 export default {
   setup() {
-    return {
-
+    onMounted(() => {
+      getPosts();
+    });
+    async function getPosts() {
+      try {
+        await postsService.getPosts();
+      }
+      catch (error) {
+        logger.error(error);
+        Pop.error(error);
+      }
     }
-  }
+    return {
+      posts: computed(() => AppState.posts)
+    };
+  },
+  components: { PostCard, PostCard }
 }
 </script>
 
