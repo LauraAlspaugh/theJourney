@@ -1,15 +1,17 @@
 <template>
     <div class="container-fluid">
         <section v-if="post" class="row justify-content-center p-4 mt-5">
-            <div class="col-5 mb-5">
+            <div class="col-5 mb-5 post-section">
                 <p class="fs-1 post-title">{{ post.title }}.</p>
                 <p class="post-body">{{ post.body }}</p>
-                <img class="img-fluid" :src="post.img" alt="post image">
+                <img class="img-fluid " :src="post.img" alt="post image">
+                <span v-if="isFavPost" @click.stop="unfavoritePost(isFavPost.favoriteId)" role="button"><i
+                        class="fs-2 mdi mdi-heart text-center" title="unfavorite this post"></i></span>
+                <span v-else @click.stop="favoritePost(post.id)" role="button"><i
+                        class="fs-2 mdi mdi-heart-outline text-center" title="favorite this post"></i></span>
             </div>
             <div class="col-3 gray-box mt-5 ms-4 text-center">
-                <img class="img-fluid personal-image mt-5"
-                    src="https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="">
+                <img class="img-fluid personal-image mt-5" src="../assets/img/pictureday.png" alt="">
                 <p class="hi-text fs-3 mt-2 p-5">Hi, thanks for stopping by!</p>
                 <router-link class="" :to="{ name: 'About' }">
                     <button class="btn btn-outline-dark text-white read-button">Read More</button>
@@ -27,6 +29,7 @@ import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { useRoute } from 'vue-router';
 import { postsService } from '../services/PostsService.js';
+import { favoritesService } from '../services/FavoritesService.js';
 export default {
     setup() {
         const route = useRoute()
@@ -44,7 +47,25 @@ export default {
             }
         }
         return {
-            post: computed(() => AppState.activePost)
+            post: computed(() => AppState.activePost),
+            isFavPost: computed(() => AppState.myFavoritePosts.find((post) => post.id == post.id || post.postId == post.id)),
+            async favoritePost() {
+                try {
+                    const postId = route.params.postId;
+                    logger.log('favorite post with post id', postId)
+                    await favoritesService.favoritePost(postId);
+                }
+                catch (error) { Pop.error(error) }
+            },
+            async unfavoritePost(favoriteId) {
+                try {
+
+                    const postId = route.params.postId;
+                    logger.log('we are trying to unfavorite this post', postId)
+                    await favoritesService.unfavoritePost(favoriteId);
+                }
+                catch (error) { Pop.error(error) }
+            },
         }
     }
 };
@@ -90,5 +111,9 @@ img {
     background-color: black;
     font-family: 'Times New Roman', Times, serif;
     border-radius: 0px;
+}
+
+.post-section {
+    border-bottom: 2px solid lightgray;
 }
 </style>

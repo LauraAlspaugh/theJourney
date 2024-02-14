@@ -43,9 +43,7 @@
           The west is beautiful. If you have doubts, come see for yourself. Thank me later. ​​</p>
       </div>
       <div class="col-4">
-        <img
-          src="https://images.unsplash.com/photo-1505033575518-a36ea2ef75ae?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D"
-          alt="">
+        <img src="../assets/img/lauradowntown.png" alt="">
       </div>
     </section>
   </div>
