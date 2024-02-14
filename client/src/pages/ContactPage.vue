@@ -25,7 +25,7 @@
                     <p class="text-center fs-5 mt-5 news-intro">Read Our Newsletter.</p>
                     <div class="d-flex justify-content-around mt-5 email-space">
                         <p>Email *</p>
-                        <p>Subscribe</p>
+                        <p class="subscribe">Subscribe</p>
                     </div>
                 </div>
                 <div class="w-75">
@@ -83,6 +83,7 @@ export default {
     background-repeat: no-repeat;
     height: 500px;
     background-image: url("https://images.unsplash.com/photo-1540544321-a0e92b02d975?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTk3fHxpbnRlcmlvciUyMGFlc3R8ZW58MHx8MHx8fDA%3D");
+    border-bottom: 3px solid gray;
 }
 
 .gray-box {
@@ -102,6 +103,10 @@ export default {
 
 .connected {
     font-family: Courier New;
+}
+
+.subscribe {
+    font-weight: bold;
 }
 
 // .email-space {

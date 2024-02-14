@@ -28,11 +28,11 @@
     </section>
     <section class="row">
       <div class="col-12 text-center mt-5">
-        <p class="fs-2 blog-title ">My Life. My Blog</p>
+        <p class="fs-1 blog-title ">My Life . My Blog</p>
         <p class="fs-4 post-inspo">Sharing inspiration one post at a time.</p>
       </div>
     </section>
-    <section class="row justify-content-evenly mt-5">
+    <section class="row flex-column align-items-center mt-5">
       <div v-for="post in posts" :key="post.id" class=" col-5 mb-5">
         <post-card :postProp="post" />
       </div>
@@ -92,7 +92,7 @@ img {
 }
 
 .blog-title {
-  font-family: Scriptina;
+  font-family: Snell Roundhand, cursive;
 }
 
 .post-inspo {
