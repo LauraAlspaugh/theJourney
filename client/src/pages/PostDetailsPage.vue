@@ -9,12 +9,19 @@
                         class="fs-2 mdi mdi-heart text-center" title="unfavorite this post"></i></span>
                 <span v-else @click.stop="favoritePost(post.id)" role="button"><i
                         class="fs-2 mdi mdi-heart-outline text-center" title="favorite this post"></i></span>
+                <p class="comment-section mb-3 mt-3 p-3">Comments</p>
+                <form @submit.prevent="createComment()">
+                    <label for="body" class="form-label"></label>
+                    <textarea type="text" required rows="3" class="form-control" id="body"
+                        placeholder="Write a comment..."></textarea>
+                    <button type="submit" class="btn btn-dark text-center m-2 post-button">Publish</button>
+                </form>
             </div>
             <div class="col-12 col-md-3 gray-box mt-5 ms-4 text-center">
                 <img class="img-fluid personal-image mt-5" src="../assets/img/pictureday.png" alt="">
                 <p class="hi-text fs-3 mt-2 p-5">Hi, thanks for stopping by!</p>
                 <router-link class="" :to="{ name: 'About' }">
-                    <button class="btn btn-outline-dark text-white read-button">Read More</button>
+                    <button class="btn text-white read-button">Read More</button>
                 </router-link>
             </div>
         </section>
@@ -91,7 +98,7 @@ img {
 }
 
 .gray-box {
-    background-color: gray;
+    background-color: lightgray;
     height: 800px;
     box-shadow: 3px 7px 8px gray;
     margin-left: 5px;
@@ -113,7 +120,19 @@ img {
     border-radius: 0px;
 }
 
-.post-section {
+.comment-section {
     border-bottom: 2px solid lightgray;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+textarea {
+    border: none;
+    background-color: var(--bs-page);
+}
+
+.post-button {
+    background-color: #641E16;
+    border-radius: 0;
 }
 </style>
