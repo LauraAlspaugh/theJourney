@@ -12,10 +12,15 @@
                 <p class="comment-section mb-3 mt-3 p-3">Comments</p>
                 <form @submit.prevent="createComment()">
                     <label for="body" class="form-label"></label>
-                    <textarea type="text" required rows="3" class="form-control" id="body"
+                    <textarea v-model="editable.body" type="text" required rows="3" class="form-control" id="body"
                         placeholder="Write a comment..."></textarea>
                     <button type="submit" class="btn btn-dark text-center m-2 post-button">Publish</button>
                 </form>
+                <div v-for="comment in comments" :key="comment.id" class="col-7 comment-page p-2 mb-3">
+                    <p class="comment-content">{{ comment.body }}</p>
+                    <p>- {{ comment.creator.name }} at {{
+                        comment.createdAt }} </p>
+                </div>
             </div>
             <div class="col-12 col-md-3 gray-box mt-5 ms-4 text-center">
                 <img class="img-fluid personal-image mt-5" src="../assets/img/pictureday.png" alt="">
@@ -31,18 +36,21 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
+import { computed, reactive, onMounted, ref } from 'vue';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { useRoute } from 'vue-router';
 import { postsService } from '../services/PostsService.js';
 import { favoritesService } from '../services/FavoritesService.js';
+import { commentsService } from '../services/CommentsService.js';
 export default {
     setup() {
-        const route = useRoute()
+        const editable = ref({})
         onMounted(() => {
             getPostById()
+            getCommentsByPostId()
         })
+        const route = useRoute()
         async function getPostById() {
             try {
                 const postId = route.params.postId
@@ -53,7 +61,19 @@ export default {
 
             }
         }
+        async function getCommentsByPostId() {
+            try {
+                const postId = route.params.postId;
+                await commentsService.getCommentsByPostId(postId);
+            }
+            catch (error) {
+                logger.error(error);
+            }
+        }
         return {
+            editable,
+            route,
+            comments: computed(() => AppState.comments),
             post: computed(() => AppState.activePost),
             isFavPost: computed(() => AppState.myFavoritePosts.find((post) => post.id == post.id || post.postId == post.id)),
             async favoritePost() {
@@ -72,6 +92,16 @@ export default {
                     await favoritesService.unfavoritePost(favoriteId);
                 }
                 catch (error) { Pop.error(error) }
+            },
+            async createComment() {
+                try {
+                    const commentData = editable.value
+                    commentData.postId = route.params.postId
+                    await commentsService.createComment(commentData)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error)
+                }
             },
         }
     }
@@ -134,5 +164,9 @@ textarea {
 .post-button {
     background-color: #641E16;
     border-radius: 0;
+}
+
+.comment-content {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 </style>

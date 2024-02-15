@@ -19,4 +19,6 @@ ALTER TABLE posts MODIFY column body VARCHAR(4000);
 
 SELECT * FROM favorites
 
+SELECT * FROM comments
+
 DROP TABLE favorites
