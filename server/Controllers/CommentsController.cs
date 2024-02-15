@@ -28,5 +28,36 @@ public class CommentsController : ControllerBase
             return BadRequest(error.Message);
         }
     }
+    [Authorize]
+    [HttpDelete("{commentId}")]
+    public async Task<ActionResult<string>> DestroyComment(int commentId)
+    {
+        try
+        {
+            Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+            string userId = userInfo.Id;
+            string message = _commentsService.DestroyComment(commentId, userId);
+            return Ok(message);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
+    [HttpGet("{commentId}")]
+    public ActionResult<Comment> GetCommentById(int commentId)
+    {
+        try
+        {
+            Comment comment = _commentsService.GetCommentById(commentId);
+            return Ok(comment);
+        }
+        catch (Exception error)
+        {
+
+            return BadRequest(error.Message);
+        }
+    }
 
 }

@@ -22,3 +22,5 @@ SELECT * FROM favorites
 SELECT * FROM comments
 
 DROP TABLE favorites
+
+DROP TABLE comments
