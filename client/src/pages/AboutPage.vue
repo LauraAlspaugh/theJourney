@@ -25,7 +25,7 @@
       </div>
     </section>
     <section class="row justify-content-center mb-5">
-      <div class="col-4 gray-box">
+      <div class="col-12 col-md-4 gray-box">
         <p class="fs-2 hey-text p-3">Hey There.</p>
         <p class="p-3 about-text">I'm Laura. I'm so glad your here. Here's where I share what's been inspiring me and what
           I'm
@@ -42,7 +42,7 @@
 
           The west is beautiful. If you have doubts, come see for yourself. Thank me later. ​​</p>
       </div>
-      <div class="col-4">
+      <div class="col-12 col-md-4">
         <img src="../assets/img/lauradowntown.png" alt="">
       </div>
     </section>

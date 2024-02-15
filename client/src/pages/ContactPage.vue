@@ -1,10 +1,10 @@
 <template>
     <div class="container-fluid m-0 p-0">
         <section class="row m-0 p-0 mt-5">
-            <div class="col-5 the-journey">
+            <div class="col-12 col-md-5 the-journey">
                 <p class="the-journey">The Journey.</p>
             </div>
-            <div class="col-5  m-5 d-flex justify-content-evenly nav-bar">
+            <div class="col-12 col-md-5  m-5 d-flex justify-content-evenly nav-bar">
                 <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
                     <p>Home</p>
                 </router-link>
@@ -20,7 +20,7 @@
             </div>
         </section>
         <section class="row justify-content-evenly contact-info">
-            <div class="col-7 p-0 gray-box d-flex flex-column align-items-center">
+            <div class="col-12 col-md-7 p-0 gray-box d-flex flex-column align-items-center">
                 <div class="w-100">
                     <p class="text-center fs-5 mt-5 news-intro">Read Our Newsletter.</p>
                     <div class="d-flex justify-content-around mt-5 email-space">

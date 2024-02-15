@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
     <section class="row mt-5">
-      <div class="col-5 the-journey">
+      <div class="col-12 col-md-5 the-journey">
         <p class="the-journey">The Journey.</p>
       </div>
-      <div class="col-5  m-5 d-flex justify-content-evenly nav-bar">
+      <div class="col-12 col-md-5  m-5 d-flex justify-content-evenly nav-bar">
         <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
           <p>Home</p>
         </router-link>
@@ -33,7 +33,7 @@
       </div>
     </section>
     <section class="row flex-column align-items-center mt-5">
-      <div v-for="post in posts" :key="post.id" class=" col-5 mb-5">
+      <div v-for="post in posts" :key="post.id" class="col-12 col-md-5 mb-5">
         <post-card :postProp="post" />
       </div>
     </section>

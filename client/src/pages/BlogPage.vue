@@ -23,7 +23,7 @@
             <div class="col-12 text-center mt-3">
                 <p class="fs-1">The Feed</p>
             </div>
-            <div v-for="post in posts" :key="post.id" class="col-4 mt-5">
+            <div v-for="post in posts" :key="post.id" class="col-12 col-md-4 mt-5">
                 <post-card :postProp="post" />
             </div>
         </section>

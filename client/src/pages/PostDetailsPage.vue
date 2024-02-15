@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <section v-if="post" class="row justify-content-center p-4 mt-5">
-            <div class="col-5 mb-5 post-section">
+            <div class="col-12 col-md-5 mb-5 post-section">
                 <p class="fs-1 post-title">{{ post.title }}.</p>
                 <p class="post-body">{{ post.body }}</p>
                 <img class="img-fluid " :src="post.img" alt="post image">
@@ -10,7 +10,7 @@
                 <span v-else @click.stop="favoritePost(post.id)" role="button"><i
                         class="fs-2 mdi mdi-heart-outline text-center" title="favorite this post"></i></span>
             </div>
-            <div class="col-3 gray-box mt-5 ms-4 text-center">
+            <div class="col-12 col-md-3 gray-box mt-5 ms-4 text-center">
                 <img class="img-fluid personal-image mt-5" src="../assets/img/pictureday.png" alt="">
                 <p class="hi-text fs-3 mt-2 p-5">Hi, thanks for stopping by!</p>
                 <router-link class="" :to="{ name: 'About' }">
