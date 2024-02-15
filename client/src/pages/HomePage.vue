@@ -4,7 +4,7 @@
       <div class="col-12 col-md-5 the-journey">
         <p class="the-journey">The Journey.</p>
       </div>
-      <div class="col-12 col-md-5  m-5 d-flex justify-content-evenly nav-bar">
+      <div class="col-12 col-md-5   nav-bar">
         <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
           <p>Home</p>
         </router-link>
@@ -76,11 +76,21 @@ export default {
   font-size: 50px;
   font-family: cursive;
   padding-left: 80px;
+
 }
 
 .nav-bar a {
   font-family: Courier New;
   font-size: 18px;
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
 }
 
 img {
@@ -103,5 +113,20 @@ img {
 .navbar a.active {
   border-top: black 1px solid;
   border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 900px) {
+  .the-journey {
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  .nav-bar {
+    justify-content: center;
+    margin: 0;
+    display: block;
+  }
+
+
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div class="container-fluid">
     <section class="row mt-5 header-section">
-      <div class="col-5 the-journey">
+      <div class=" col-12 col-md-5 the-journey">
         <p class="the-journey">The Journey.</p>
       </div>
-      <div class="col-5  m-5 d-flex justify-content-evenly nav-bar">
+      <div class="col-12 col-md-5 nav-bar">
         <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
           <p>Home</p>
         </router-link>
@@ -72,6 +72,9 @@ export default {
 .nav-bar {
   font-family: Courier New;
   font-size: 18px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
 }
 
 .active,
@@ -93,7 +96,7 @@ export default {
 img {
   position: absolute;
   left: 48%;
-  top: 50%;
+  top: 45%;
   border: 3px solid black;
   width: 30%;
   height: 550px;
@@ -115,5 +118,35 @@ img {
   width: 100%;
   height: 200px;
   box-shadow: 0px 3px 10px gray;
+}
+
+@media screen and (max-width: 900px) {
+  .the-journey {
+    justify-content: center;
+    font-size: 25px;
+  }
+
+  .nav-bar {
+    justify-content: center;
+    margin: 0;
+    display: block;
+
+  }
+
+  img {
+    position: static;
+    width: 100%;
+    height: 400px;
+    margin-top: 5px;
+  }
+
+  .gray-box {
+    position: static;
+    width: 100%;
+    height: 600px;
+    margin-bottom: 3px;
+  }
+
+
 }
 </style>
