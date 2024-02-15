@@ -1,6 +1,7 @@
 import { AppState } from "../AppState.js";
 import { Favorite } from "../models/Favorite.js";
 import { logger } from "../utils/Logger.js";
+import { accountService } from "./AccountService.js";
 import { api } from "./AxiosService.js";
 
 class FavoritesService{
@@ -16,7 +17,7 @@ class FavoritesService{
         logger.log('trying to unfavorite this.')
         const res = await api.delete(`api/favorites/${favoriteId}`);
         AppState.myFavoritePosts = AppState.myFavoritePosts.filter(post => post.favoriteId != favoriteId);
-
+        await accountService.getFavorites()
         return res.data
 
 

@@ -1,4 +1,5 @@
 
+
 namespace theJourney.Repositories;
 public class FavoritesRepository
 {
@@ -50,4 +51,27 @@ public class FavoritesRepository
         return favorite;
     }
 
+    internal List<Favorite> GetFavoritesByAccountId(string userId)
+    {
+        string sql = @"
+    SELECT 
+    fav.*,
+    pos.*,
+    acc.*
+    FROM favorites fav
+    JOIN posts pos ON fav.postId = pos.id
+    JOIN accounts acc ON acc.id = pos.creatorId
+    WHERE fav.accountId = @userId;
+    ";
+        List<Favorite> postFavorites = _db.Query<Favorite, Favorite, Account, Favorite>(sql, (favorite, photoFavorite, account) =>
+        {
+            photoFavorite.FavoriteId = favorite.Id;
+            photoFavorite.AccountId = favorite.AccountId;
+            photoFavorite.Creator = account;
+
+            return photoFavorite;
+
+        }, new { userId }).ToList();
+        return postFavorites;
+    }
 }

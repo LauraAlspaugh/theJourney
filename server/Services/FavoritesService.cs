@@ -1,4 +1,5 @@
 
+
 namespace theJourney.Services;
 public class FavoritesService
 {
@@ -32,5 +33,11 @@ public class FavoritesService
         }
         _favoritesRepository.DestroyFavorite(favoriteId);
         return "It really is gone bro!";
+    }
+
+    internal List<Favorite> GetFavoritesByAccountId(string userId)
+    {
+        List<Favorite> postFavorites = _favoritesRepository.GetFavoritesByAccountId(userId);
+        return postFavorites;
     }
 }
