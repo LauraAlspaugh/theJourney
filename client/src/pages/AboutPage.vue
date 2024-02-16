@@ -30,15 +30,15 @@
         <p class="p-3 about-text">I'm Laura. I'm so glad your here. Here's where I share what's been inspiring me and what
           I'm
           learning on this
-          journey called LIFE. Never meant to be traveled alone, let's go together.
+          journey called LIFE.<br> Never meant to be traveled alone, let's go together.<br>
 
-          I believe with all my heart that so much good can come from hard things.
+          I believe with all my heart that so much good can come from hard things.<br>
 
-          I love good chats. Exercise. Traveling. And a whole lot of other things.
+          I love good chats. Exercise. Traveling. And a whole lot of other things.<br>
 
-          Jesus needs to be first in my life.
+          Jesus needs to be first in my life.<br>
 
-          And oh, I like to think I'm a minimalist.
+          And oh, I like to think I'm a minimalist.<br>
 
           The west is beautiful. If you have doubts, come see for yourself. Thank me later. ​​</p>
       </div>
@@ -87,7 +87,7 @@ export default {
   position: relative;
   background-color: gray;
   width: 30%;
-  height: 490px;
+  height: 500px;
   box-shadow: 0px 5px 10px #888888;
   box-shadow: 0px 15px 9px #888888;
   bottom: 20%;
@@ -122,6 +122,7 @@ img {
 
 @media screen and (max-width: 900px) {
   .the-journey {
+    padding-left: 17%;
     justify-content: center;
     font-size: 25px;
   }

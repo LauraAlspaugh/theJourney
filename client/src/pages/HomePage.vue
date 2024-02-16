@@ -117,6 +117,7 @@ img {
 
 @media screen and (max-width: 900px) {
   .the-journey {
+    padding-left: 17%;
     justify-content: center;
     font-size: 25px;
   }
