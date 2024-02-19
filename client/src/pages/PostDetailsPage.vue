@@ -5,10 +5,6 @@
                 <p class="fs-1 post-title">{{ post.title }}.</p>
                 <p class="post-body">{{ post.body }}</p>
                 <img class="img-fluid " :src="post.img" alt="post image">
-                <span v-if="isFavPost" @click.stop="unfavoritePost(isFavPost.favoriteId)" role="button"><i
-                        class="fs-2 mdi mdi-heart text-center" title="unfavorite this post"></i></span>
-                <span v-else @click.stop="favoritePost(post.id)" role="button"><i
-                        class="fs-2 mdi mdi-heart-outline text-center" title="favorite this post"></i></span>
                 <p class="comment-section mb-3 mt-3 p-3">Comments</p>
                 <form @submit.prevent="createComment()">
                     <label for="body" class="form-label"></label>

@@ -86,6 +86,8 @@ export default {
     column-gap: 1rem;
 }
 
+
+
 @media screen and (max-width: 900px) {
     .the-journey {
         padding-left: 17%;

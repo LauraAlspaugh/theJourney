@@ -25,8 +25,13 @@
                     <p class="text-center fs-5 mt-5 news-intro">Read Our Newsletter.</p>
                     <div class="d-flex justify-content-around mt-5 email-space">
                         <p>Email *</p>
-                        <p class="subscribe">Subscribe</p>
+                        <p role="button" class="subscribe">Subscribe</p>
                     </div>
+                    <form @submit.prevent="createSubscriber()">
+                        <label for="body" class="form-label"></label>
+                        <textarea type="text" required rows="1" class="form-control" id="body"
+                            placeholder="email..."></textarea>
+                    </form>
                 </div>
                 <div class="w-75">
                     <hr>
@@ -70,6 +75,15 @@ export default {
 
 .container {
     margin-right: 0;
+}
+
+textarea {
+    border: none;
+    background-color: white;
+    width: 75%;
+    justify-content: center;
+    display: flex;
+
 }
 
 .active,
