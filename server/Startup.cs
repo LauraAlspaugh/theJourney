@@ -42,6 +42,9 @@ public class Startup
 
     services.AddScoped<CommentsRepository>();
     services.AddScoped<CommentsService>();
+
+    services.AddScoped<SubscribersRepository>();
+    services.AddScoped<SubscribersService>();
   }
 
   private void ConfigureCors(IServiceCollection services)

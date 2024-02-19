@@ -25,11 +25,11 @@
                     <p class="text-center fs-5 mt-5 news-intro">Read Our Newsletter.</p>
                     <div class="d-flex justify-content-around mt-5 email-space">
                         <p>Email *</p>
-                        <p role="button" class="subscribe">Subscribe</p>
+                        <p role="button" @click="createSubscriber()" class="subscribe">Subscribe</p>
                     </div>
                     <form @submit.prevent="createSubscriber()">
                         <label for="body" class="form-label"></label>
-                        <textarea type="text" required rows="1" class="form-control" id="body"
+                        <textarea v-model="editable.email" type="text" required rows="1" class="form-control" id="body"
                             placeholder="email..."></textarea>
                     </form>
                 </div>
@@ -49,10 +49,29 @@
 
 <script>
 import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
+import { computed, reactive, onMounted, ref } from 'vue';
+import { postsService } from '../services/PostsService.js';
+import { useRoute } from 'vue-router';
+import { logger } from '../utils/Logger.js';
+import Pop from '../utils/Pop.js';
 export default {
     setup() {
-        return {}
+        const editable = ref({})
+        const route = useRoute()
+        return {
+            editable,
+            route,
+            async createSubscriber() {
+                try {
+                    const subscribeData = editable.value
+                    subscribeData.postId = route.params.postId
+                    await postsService.createSubscriber(subscribeData)
+                } catch (error) {
+                    logger.error(error)
+                    Pop.error(error)
+                }
+            },
+        }
     }
 };
 </script>
