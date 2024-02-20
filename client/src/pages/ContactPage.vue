@@ -105,6 +105,10 @@ textarea {
 
 }
 
+::placeholder {
+    color: white;
+}
+
 .active,
 .navbar-brand:hover {
     border-top: black 1px solid;
