@@ -17,8 +17,8 @@ public class PostsRepository
     {
         string sql = @"
     INSERT INTO 
-    posts(title, img, body, creatorId)
-    VALUES(@Title, @Img, @Body, @CreatorId);
+    posts(title, img, secondImage, body, creatorId)
+    VALUES(@Title, @Img, @SecondImage, @Body, @CreatorId);
     SELECT 
     pos.*,
     acc.*

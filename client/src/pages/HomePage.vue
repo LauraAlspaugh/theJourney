@@ -110,8 +110,9 @@ img {
 }
 
 
-.navbar a.active {
-  border-top: black 1px solid;
+.active,
+.navbar-brand:hover {
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
 

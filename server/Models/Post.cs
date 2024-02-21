@@ -6,6 +6,7 @@ public class Post
     public DateTime UpdatedAt { get; set; }
     public string Title { get; set; }
     public string Img { get; set; }
+    public string SecondImage { get; set; }
     public string Body { get; set; }
     public string CreatorId { get; set; }
     public Account Creator { get; set; }
