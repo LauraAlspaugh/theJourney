@@ -98,9 +98,16 @@ export default {
     padding-left: 80px;
 }
 
-.nav-bar {
+.nav-bar a {
     font-family: Courier New;
     font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.nav-bar {
     display: flex;
     justify-content: space-evenly;
     margin: 5px;

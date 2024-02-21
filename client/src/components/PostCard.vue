@@ -8,7 +8,7 @@
         </div>
         <div class="col-12 mb-5">
             <div class="d-flex mt-5 justify-content-between p-4">
-                <p class="fs-2 post-name  text-dark">{{ postProp.title }}</p>
+                <p class="fs-2 post-name  text-dark">{{ postProp.title }}.</p>
                 <span v-if="isFavPost" @click.stop="unfavoritePost(isFavPost.favoriteId)" role="button"><i
                         class="fs-2 mdi mdi-heart text-center" title="unfavorite this post"></i></span>
                 <span v-else @click.stop="favoritePost(postProp.id)" role="button"><i class="fs-2 mdi mdi-heart-outline"

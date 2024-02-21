@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <section class="row mt-5">
-            <div class="col-5 the-journey">
+            <div class="col-12 col-md-5 the-journey">
                 <p class="the-journey">The Journey.</p>
             </div>
             <div class="col-12 col-md-5   nav-bar">
@@ -69,9 +69,16 @@ export default {
     padding-left: 80px;
 }
 
-.nav-bar {
+.nav-bar a {
     font-family: Courier New;
     font-size: 18px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.nav-bar {
     display: flex;
     justify-content: space-evenly;
     margin: 5px;

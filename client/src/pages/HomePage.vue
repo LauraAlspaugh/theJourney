@@ -84,6 +84,7 @@ export default {
   font-size: 18px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 
 }
 
