@@ -119,6 +119,10 @@ textarea {
 
 }
 
+input {
+    border: none;
+}
+
 ::placeholder {
     color: white;
 }

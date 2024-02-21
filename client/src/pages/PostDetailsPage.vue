@@ -3,7 +3,7 @@
         <section v-if="post" class="row justify-content-center p-4 mt-5">
             <div class="col-12 col-md-5 mb-5 post-section">
                 <p class="fs-1 post-title">{{ post.title }}.</p>
-                <p class="post-body">{{ post.body }}</p>
+                <p class="post-body">"{{ post.body }}"</p>
                 <img class="img-fluid " :src="post.img" alt="post image">
                 <p class="comment-section mb-3 mt-3 p-3">Comments</p>
                 <form @submit.prevent="createComment()">
