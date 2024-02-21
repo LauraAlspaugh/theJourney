@@ -22,6 +22,7 @@
         <section class="row mb-5 justify-content-center">
             <div class="col-12 text-center mt-3">
                 <p class="fs-1">The Feed</p>
+                <login />
             </div>
             <div v-for="post in posts" :key="post.id" class="col-12 col-md-4 mt-5">
                 <post-card :postProp="post" />
@@ -38,6 +39,7 @@ import PostCard from '../components/PostCard.vue';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop.js';
 import { postsService } from '../services/PostsService.js';
+import Login from '../components/Login.vue';
 export default {
     setup() {
         onMounted(() => {
@@ -55,7 +57,7 @@ export default {
             posts: computed(() => AppState.posts)
         };
     },
-    components: { PostCard }
+    components: { PostCard, Login }
 };
 </script>
 

@@ -23,15 +23,29 @@
             <div class="col-12 col-md-7 p-0 gray-box d-flex flex-column align-items-center">
                 <div class="w-100">
                     <p class="text-center fs-5 mt-5 news-intro">Read Our Newsletter.</p>
-                    <div class="d-flex justify-content-around mt-5 email-space">
-                        <p>Email *</p>
-                        <p role="button" @click="createSubscriber()" class="subscribe">Subscribe</p>
-                    </div>
-                    <form @submit.prevent="createSubscriber()">
+                    <form action="https://formspree.io/f/mleqbkye" method="POST"
+                        class="d-flex flex-column align-items-center">
+                        <div class="d-flex justify-content-around align-items-center mt-5 w-100 email-space">
+                            <p class="mb-0">Email *</p>
+                            <button type="submit" role="button" @click="createSubscriber()"
+                                class="subscribe btn">Subscribe</button>
+                        </div>
                         <label for="body" class="form-label"></label>
-                        <textarea v-model="editable.email" type="text" required rows="1" class="form-control" id="body"
-                            placeholder="email..."></textarea>
+                        <input v-model="editable.email" type="text" required rows="1" class="form-control w-75" id="body"
+                            name="email" placeholder="email...">
                     </form>
+                    <!-- <form action="https://formspree.io/f/mleqbkye" method="POST">
+                        <label>
+                            Your email:
+                            <input type="email" name="email">
+                        </label>
+                         <label>
+                            Your message:
+                            <textarea name="message"></textarea>
+                        </label> 
+                     
+                        <button type="submit">Subscribe</button>
+                    </form> -->
                 </div>
                 <div class="w-75">
                     <hr>
@@ -147,6 +161,7 @@ textarea {
 
 .subscribe {
     font-weight: bold;
+    border: none;
 }
 
 @media screen and (max-width: 900px) {
