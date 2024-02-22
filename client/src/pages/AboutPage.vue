@@ -65,9 +65,7 @@ export default {
   padding-left: 80px;
 }
 
-// .header-section {
-//   box-shadow: 0px 3px 10px gray;
-// }
+
 
 .nav-bar a {
   font-family: Courier New;
