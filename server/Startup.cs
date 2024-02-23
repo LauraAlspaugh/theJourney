@@ -45,6 +45,9 @@ public class Startup
 
     services.AddScoped<SubscribersRepository>();
     services.AddScoped<SubscribersService>();
+
+    services.AddScoped<MailRepository>();
+    services.AddScoped<MailService>();
   }
 
   private void ConfigureCors(IServiceCollection services)
