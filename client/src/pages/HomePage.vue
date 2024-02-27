@@ -130,6 +130,10 @@ img {
     display: block;
   }
 
+  img {
+    height: 500px;
+  }
+
 
 }
 </style>

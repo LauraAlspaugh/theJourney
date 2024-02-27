@@ -101,7 +101,7 @@ export default {
 img {
   position: absolute;
   left: 48%;
-  top: 45%;
+  top: 49%;
   border: 3px solid black;
   width: 30%;
   height: 550px;

@@ -41,7 +41,7 @@ footer {
 }
 
 .footer-style {
-  font-family: cursive;
+  font-family: 'Times New Roman', Times, serif;
 
 }
 </style>
