@@ -7,7 +7,8 @@
 
         </div>
         <div class="col-12 mb-5">
-            <div class="d-flex mt-5 justify-content-between p-4">
+            <p class="post-date mt-4 ms-4">{{ postProp.createdAt }}</p>
+            <div class="d-flex pt-2 justify-content-between p-4">
                 <p class="fs-2 post-name  text-dark">{{ postProp.title }}.</p>
                 <span v-if="isFavPost" @click.stop="unfavoritePost(isFavPost.favoriteId)" role="button"><i
                         class="fs-2 mdi mdi-heart text-center" title="unfavorite this post"></i></span>
@@ -77,6 +78,11 @@ img {
 
 .post-name {
 
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.post-date {
     font-family: cursive;
 }
 
