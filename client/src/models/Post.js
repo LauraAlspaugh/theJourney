@@ -8,7 +8,7 @@ export class Post{
         this.secondImage = data.secondImage || data.img
         this.creator = data.creator
         this.creatorId = data.creatorId
-        this.createdAt = new Date(data.createdAt).toLocaleDateString()
+        this.createdAt = new Date(data.createdAt).toLocaleDateString('en-us', {  year:"numeric", month:"long", day:"numeric"}) 
         this.updatedAt = new Date(data.updatedAt).toLocaleDateString()
         this.favorites = data.favorites
         this.isFavorite = data.isFavorite
