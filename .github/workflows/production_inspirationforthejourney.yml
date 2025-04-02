@@ -37,10 +37,29 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+  build2:
+    runs-on: ubunto-latest
+    defaults:
+      run:
+        working-directory: ./client
+    permissions:
+      contents: read #This is required for actions/checkout
 
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: build front end
+        run: npm run build
+      - name: copy dist files to app folder
+        run: cp dist/ ${{env.DOTNET_ROOT}}/myapp
   deploy:
     runs-on: windows-latest
-    needs: build
+    needs: [build, build2]
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
