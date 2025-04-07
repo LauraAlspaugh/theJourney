@@ -56,7 +56,7 @@ jobs:
       - name: build front end
         run: npm run build
       - name: copy dist files to app folder
-        run: cp -r docs/* ${{env.DOTNET_ROOT}}/myapp/
+        run: cp -r docs/* ${{env.DOTNET_ROOT}}/myapp
   deploy:
     runs-on: windows-latest
     needs: [build, build2]
