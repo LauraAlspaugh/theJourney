@@ -85,7 +85,7 @@ jobs:
       - name: add db connection string
         uses: richardrigutins/replace-in-files@v2
         with:
-          files: 'server/appsettings.json'
+          files: '.net-app/server/appsettings.json'
           search-text: '"CONNECTION_STRING": ""'
           replacement-text: '"CONNECTION_STRING": "${{ secrets.CONNECTION_STRING }}"'
       
