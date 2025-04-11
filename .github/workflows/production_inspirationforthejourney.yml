@@ -81,6 +81,13 @@ jobs:
         with:
           name: frontend
           path: wwwroot
+
+      - name: add db connection string
+        uses: richardrigutins/replace-in-files@v2
+        with:
+          files: 'server/appsettings.json'
+          search-text: '"CONNECTION_STRING": ""'
+          replacement-text: '"CONNECTION_STRING": "${{ secrets.CONNECTION_STRING }}"'
       
       - name: Login to Azure
         uses: azure/login@v2
