@@ -16,7 +16,7 @@ jobs:
       run:
         working-directory: ./server
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read #This is required for actions/checkout 1
 
     steps:
       - uses: actions/checkout@v4
