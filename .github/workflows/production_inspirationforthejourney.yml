@@ -61,7 +61,7 @@ jobs:
           name: frontend
           path: client/docs
   deploy:
-    runs-on: windows-latest
+    runs-on: docker-internal
     needs: [build, build2]
     environment:
       name: 'Production'
